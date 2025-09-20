@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>검색과 방명록</title>
+    </head>
+    
+    <body>
+        <!--검색-->
+        <h1>검색하기</h1>
+        <form action="/search" method="GET">    <!--입력 내용을 서버로 보낼 수 있는 양식 (form) 정의-->
+            <!--action='/search': 사용자가 제출하면 /search 경로로 요청 보냄-->
+            <!--근데 그 데이터를 URL에 붙여서(GET이니까)-->
+
+            <input type="text" name="q" placeholder="검색어를 입력하세요">
+            <!--name="q": 사용자가 입력한 값이 키 값으로 (name은  input태그의 속성임)
+                        -> 이게 request.args.get('q')에서 쓰는 거-->
+            
+            <button type="submit">검색</button>
+            <!--버튼을 누르면 GET방식으로 /search?q=검색어 요청이 전송됨-->
+        </form>
+
+
+        <!--방명록-->
+        <h1>방명록 작성</h1>
+        <p>각각 이름과 메시지 입력</p>
+
+        <form action="/write" method="POST">
+            <div class="visit" flex-direction="row">
+                <input type="text" name="name" placeholder="이름">
+                <input type="text" name="message" placeholder="메시지">
+                <!--여기서는 키 이름이 name, message인 거!! q가 아니라-->
+                <button type="submit">작성</button>
+                <!--이 form태그 안에 있는 내용을 제출하는 버튼-->
+            </div>
+        </form>
+
+        
+       
+        <!--Jinja2 문법 (Flask 템플릿 엔진)-->
+        {% if show_guestbook %} <!--python의 write()에서 return으로 show_guestbook = True라고 넘겼던 그 값-->
+            <h2>방명록 목록</h2>
+            <ul>
+                {% for entry in guest %}    <!--반복문-->
+                    <li><strong>{{ entry.name }}</strong>: {{ entry.message }}</li>
+                    <!--{{ 두 번 감싸야 함 }}: 변수 출력-->
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+    </body>
+</html>

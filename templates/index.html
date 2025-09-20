@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>검색 페이지</title>
+</head>
+<body>
+    <h1>검색 페이지</h1>
+    <form action="/search" method="GET">    <!--입력 내용을 서버로 보낼 수 있는 양식 (form) 정의-->
+        <!--action='/search': 사용자가 제출하면 /search 경로로 요청 보냄-->
+        <!--근데 그 데이터를 URL에 붙여서(GET이니까)-->
+
+        <input type="text" name="q" placeholder="검색어를 입력하세요">
+        <!--name="q": 사용자가 입력한 값이 키 값으로 (name은  input태그의 속성임)
+                     -> 이게 request.args.get('q')에서 쓰는 거-->
+        
+        <button type="submit">검색</button>
+        <!--버튼을 누르면 GET방식으로 /search?q=검색어 요청이 전송됨-->
+    </form>
+
+    
+</body>
+</html>
