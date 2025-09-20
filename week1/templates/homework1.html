@@ -20,6 +20,16 @@
         </form>
 
 
+
+        <!--계속 에러 나서 jinja문법에 대한 주석 여기에 달기...-->
+        <!--Jinja2 문법 (Flask 템플릿 엔진)-->
+        <!--python의 write()에서 return으로 show_guestbook = True라고 넘겼던 그 값-->
+        <!--반복문-->
+        <!--{{ 두 번 감싸야 함 }}: 변수 출력-->
+
+
+
+
         <!--방명록-->
         <h1>방명록 작성</h1>
         <p>각각 이름과 메시지 입력</p>
@@ -34,18 +44,16 @@
             </div>
         </form>
 
-        
-       
-        <!--Jinja2 문법 (Flask 템플릿 엔진)-->
-        {% if show_guestbook %} <!--python의 write()에서 return으로 show_guestbook = True라고 넘겼던 그 값-->
+ 
+
+
+        {% if show_guestbook %}
             <h2>방명록 목록</h2>
             <ul>
-                {% for entry in guest %}    <!--반복문-->
+                {% for entry in guest %}    
                     <li><strong>{{ entry.name }}</strong>: {{ entry.message }}</li>
-                    <!--{{ 두 번 감싸야 함 }}: 변수 출력-->
                 {% endfor %}
             </ul>
         {% endif %}
-
     </body>
 </html>

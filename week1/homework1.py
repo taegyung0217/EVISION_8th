@@ -15,7 +15,7 @@ def search():
 
 
 @homework1.route('/write', methods=['POST'])
-def wrtie():
+def write():
     name = request.form.get('name', '익명') # 이름이 없으면 '익명'으로 설정
     message = request.form.get('message', '')
     # -> 위 search에서는 q로 받았고, write에서는 키값이 name, message인 거!
