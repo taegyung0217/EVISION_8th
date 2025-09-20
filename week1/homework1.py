@@ -25,7 +25,5 @@ def wrtie():
     return render_template('homework1.html', guest=guest, show_guestbook=True)   #방명록을 저장하고, 메인 페이지에 리디렉션+방명록 전달하기
 
 
-
-
 if __name__ == '__main__':
     homework1.run(debug=True)
